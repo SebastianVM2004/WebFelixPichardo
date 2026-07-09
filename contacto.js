@@ -84,7 +84,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Toggle del chatbot
     chatbotToggle.addEventListener('click', function(event) {
         event.preventDefault();
+        const chatDiv = document.getElementById('chat-messages');
+        const defaultMsg = '¡Hola! Soy tu asistente virtual. Pregúntame sobre horario, precio o envío.';
         if (chatbotWindow.classList.contains('hidden')) {
+            if (chatDiv) chatDiv.innerHTML = `<div class="message bot-message"><strong>Bot:</strong> ${defaultMsg}</div>`;
             chatbotWindow.classList.remove('hidden');
             chatbotWindow.classList.add('visible');
         } else {

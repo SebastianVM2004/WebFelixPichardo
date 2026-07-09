@@ -1036,15 +1036,18 @@ main {
     color: white;
   }
 }
+@media (min-width: 901px) {
   .chatbot-window {
-    width: calc(100vw - 20px);
+    position: absolute;
+    width: 360px;
     right: 0;
-    left: 0;
-    margin: 0 auto;
-    bottom: 75px;
+    left: auto;
+    margin: 0;
+    bottom: 85px;
     max-width: 360px;
-    height: 380px;
+    height: 420px;
   }
+}
 
   .chat-input-wrapper {
     flex-direction: column;
