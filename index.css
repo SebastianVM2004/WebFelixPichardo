@@ -986,6 +986,34 @@ main {
     box-sizing: border-box;
   }
 }
+/* Also apply stacked style for slightly larger mobile/tablet widths to match device viewports */
+@media (max-width: 768px) {
+  #opcionesindex {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 18px;
+  }
+
+  #opcionesindex li {
+    width: 100%;
+    max-width: 640px;
+    border-radius: 28px;
+    padding: 0;
+    background: rgba(26,58,74,0.12);
+    border: 3px solid var(--color-accent-gold);
+  }
+
+  #opcionesindex li a {
+    display: block;
+    width: 100%;
+    padding: 16px 20px;
+    text-align: center;
+    font-size: 1.05em;
+    box-sizing: border-box;
+    color: white;
+  }
+}
   .chatbot-window {
     width: calc(100vw - 20px);
     right: 0;
