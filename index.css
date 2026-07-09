@@ -896,7 +896,7 @@ main {
   }
 
   #opcionesindex li {
-    flex: 1 1 calc(50% - 8px);
+    flex: 1 1 100%;
     min-width: 0;
   }
 
