@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Datos</title>
+    <link rel="stylesheet" href="contacto.css">
+</head>
+<body>
+    <header>
+        <h1>Contacto</h1>
+        <ul id="opcionesindex">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="conferencias.html">Conferencias</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="contact-container">
+            <section class="contact-info">
+                <h2>Información de Contacto</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <h3>Dirección</h3>
+                        <p>Calle Principal 123<br>Ciudad, País<br>CP: 28000</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h3>Teléfono</h3>
+                        <p>+5255 123 456 789<br>+01800 123 4567<br>Horario: Lun-Vie: 9am-6pm</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <h3>Email</h3>
+                        <p>info@ejemplo.com<br>soporte@ejemplo.com<br>ventas@ejemplo.com</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-form-section">
+                <h2>Envíanos un Mensaje</h2>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="asunto">Asunto *</label>
+                        <input type="text" id="asunto" name="asunto" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+                <div id="formMessage" class="form-message"></div>
+            </section>
+        </div>
+
+        <section class="social-section">
+            <h2>Síguenos en Redes Sociales</h2>
+            <div class="social-links">
+                <a href="#" class="social-btn facebook" title="Facebook">f</a>
+                <a href="#" class="social-btn twitter" title="Twitter">𝕏</a>
+                <a href="#" class="social-btn linkedin" title="LinkedIn">in</a>
+                <a href="#" class="social-btn instagram" title="Instagram">📷</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Widget Chatbot Flotante -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <button id="chatbot-toggle" class="chatbot-toggle">💬 Chat</button>
+        <div id="chatbot-window" class="chatbot-window hidden">
+            <div class="chatbot-header">
+                <h3>Asistente Virtual</h3>
+                <button id="close-chatbot" class="close-btn">✕</button>
+            </div>
+            <div id="chat-messages"></div>
+            <div class="chat-input-wrapper">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
+                <button id="send-btn">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Datos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="contacto.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center;">Books Felix</h1>
+        <ul id="opcionesindex">
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="conferencias.html">Conferencias</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+    </header>
+
+    <main>
+        <!-- Contenedor wrapper para bienvenida e imagen -->
+        <div class="top-row">
+            <!-- Contenedor de bienvenida (3/4) -->
+            <section id="welcome-container" class="container welcome">
+                <h2>Liderazgo utópico</h2>
+                <p>Nos enseñaron que liderar es mandar, controlar, imponer resultados y sostener una imagen de éxito permanente. Pero ¿qué pasa cuando ese modelo fracasa por dentro? ¿Qué ocurre cuando el liderazgo que se predica no es congruente con los valores, la ética ni la realidad humana?</p>
+                <p>Este espacio reúne una mirada diferente: no fórmulas rápidas, sino preguntas incómodas, reflexión profunda y un regreso a lo esencial. Un liderazgo más humano, congruente y responsable.</p>
+                <p>Es para quien dirige —o está por hacerlo— y no quiere perderse en el camino. Porque tal vez el liderazgo no sea lo que nos dijeron.</p>
+                
+                <!-- Tarjeta de libro destacado -->
+                <div class="book-highlight">
+                    <h3>Descubre el libro</h3>
+                    <img id="book-image" src="assets/librocerrado.png" alt="Liderazgo Utópico - Libro">
+                    <p>Conoce un liderazgo más humano, ético y realista en cada página.</p>
+                </div>
+            </section>
+
+            <!-- Contenedor del autor (1/4) -->
+            <section id="author-container" class="container author">
+                <h2 style="text-align: center;">Autor</h2>
+                <div class="author-card">
+                    <img src="assets/perfil.jpg" alt="Félix Pichardo Meuly">
+                    <p class="author-name">Félix Pichardo Meuly</p>
+                    <p class="author-description">Autor de "Liderazgo utópico". Conferencista y consultor en liderazgo humano y consciente.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contenedor 4to (services/features) -->
+        <section id="services-container" class="container">
+            <h2>Servicios</h2>
+            <p>Aquí puedes agregar información sobre tus servicios o características destacadas.</p>
+
+            <div class="carousel-header">
+                <button id="carousel-prev" class="carousel-btn">‹</button>
+                <span class="carousel-label">Navega los servicios</span>
+                <button id="carousel-next" class="carousel-btn">›</button>
+            </div>
+
+            <div class="services-carousel-wrapper">
+                <div class="services-carousel" id="services-carousel">
+                    <article class="service-card">
+                        <img src="assets/perfil.jpg" alt="Servicio 1">
+                        <h3>Servicio 1</h3>
+                        <p>texto por defecto aqui podriasmos llevar acabo demostracciones previas del contenido</p>
+                    </article>
+                    <article class="service-card">
+                        <img src="assets/perfil.jpg" alt="Servicio 2">
+                        <h3>Servicio 2</h3>
+                        <p>texto por defecto aqui podriasmos llevar acabo demostracciones previas del contenido</p>
+                    </article>
+                    <article class="service-card">
+                        <img src="assets/perfil.jpg" alt="Servicio 3">
+                        <h3>Servicio 3</h3>
+                        <p>texto por defecto aqui podriasmos llevar acabo demostracciones previas del contenido</p>
+                    </article>
+                    <article class="service-card">
+                        <img src="assets/perfil.jpg" alt="Servicio 4">
+                        <h3>Servicio 4</h3>
+                        <p>texto por defecto aqui podriasmos llevar acabo demostracciones previas del contenido</p>
+                    </article>
+                    <article class="service-card">
+                        <img src="assets/perfil.jpg" alt="Servicio 5">
+                        <h3>Servicio 5</h3>
+                        <p>texto por defecto aqui podriasmos llevar acabo demostracciones previas del contenido</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenedor de artículo destacado -->
+        <section id="featured-article-container" class="container featured-article">
+            <div class="featured-article-card">
+                <div class="featured-article-image">
+                    <div class="placeholder-image">
+                        Imagen del artículo más reciente
+                        <span class="placeholder-note">(Pegue aquí la imagen más adelante)</span>
+                    </div>
+                </div>
+                <div class="featured-article-content">
+                    <div class="small-article-image">
+                        <div class="placeholder-small-image">Imagen pequeña</div>
+                    </div>
+                    <span class="article-label">Artículo más reciente</span>
+                    <h3>Título del artículo destacado</h3>
+                    <p>Resumen breve del artículo más reciente. Aquí irá una descripción introductoria sobre el contenido principal del artículo cuando esté lista.</p>
+                    <div class="article-meta">
+                        <span class="article-category">Categoría</span>
+                        <span class="article-date">Fecha pendiente</span>
+                    </div>
+                    <p class="article-note">Plantilla lista: reemplaza el texto y la imagen por la información real en el siguiente paso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEMPLATE FOR OTHER ARTICLES -->
+        <section id="other-articles-container" class="container other-articles">
+            <h2>Más artículos</h2>
+            <div class="article-list">
+                <article class="article-card">
+                    <div class="article-thumb"></div>
+                    <div class="article-info">
+                        <span class="article-category">Categoría</span>
+                        <h3>Título del artículo 1</h3>
+                        <p>Resumen corto del artículo. Reemplaza este texto cuando tengas la información disponible.</p>
+                    </div>
+                    <div class="article-action">›</div>
+                </article>
+                <article class="article-card">
+                    <div class="article-thumb"></div>
+                    <div class="article-info">
+                        <span class="article-category">Categoría</span>
+                        <h3>Título del artículo 2</h3>
+                        <p>Resumen corto del artículo. Reemplaza este texto cuando tengas la información disponible.</p>
+                    </div>
+                    <div class="article-action">›</div>
+                </article>
+                <article class="article-card">
+                    <div class="article-thumb"></div>
+                    <div class="article-info">
+                        <span class="article-category">Categoría</span>
+                        <h3>Título del artículo 3</h3>
+                        <p>Resumen corto del artículo. Reemplaza este texto cuando tengas la información disponible.</p>
+                    </div>
+                    <div class="article-action">›</div>
+                </article>
+            </div>
+            <div class="more-articles-wrapper">
+                <a href="articles.html" class="button secondary-button">Ver más...</a>
+            </div>
+        </section>
+
+        <!-- Contenedor de contacto -->
+        <section id="contact-container" class="container">
+            <h2>Información de Contacto</h2>
+            <p><strong>Teléfono:</strong> +551 234 567 890</p>
+            <p><strong>Email:</strong> info@ejemplo.com</p>
+            <p><strong>Dirección:</strong> Calle Principal 123, Ciudad</p>
+        </section>
+    </main>
+
+    <!-- Widget Chatbot Flotante -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <button id="chatbot-toggle" class="chatbot-toggle">💬 Chat</button>
+        <div id="chatbot-window" class="chatbot-window hidden">
+            <div class="chatbot-header">
+                <h3>Asistente Virtual</h3>
+                <button id="close-chatbot" class="close-btn">✕</button>
+            </div>
+            <div id="chat-messages"></div>
+            <div class="chat-input-wrapper">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta (horario, precio, envio)...">
+                <button id="send-btn">Enviar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

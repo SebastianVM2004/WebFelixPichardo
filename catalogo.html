@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Datos</title>
+    <link rel="stylesheet" href="catalogo.css">
+</head>
+<body>
+    <header>
+        <h1>Catálogo de Servicios</h1>
+        <ul id="opcionesindex">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="conferencias.html">Conferencias</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <!-- Filtros y búsqueda -->
+        <section class="search-filter-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar servicios...">
+                <button id="searchBtn" class="search-btn">🔍</button>
+            </div>
+
+            <div class="filter-container">
+                <select id="categoryFilter" class="filter-select">
+                    <option value="">Todas las categorías</option>
+                    <option value="consultoría">Consultoría</option>
+                    <option value="desarrollo">Desarrollo</option>
+                    <option value="diseño">Diseño</option>
+                    <option value="capacitación">Capacitación</option>
+                </select>
+
+                <select id="priceFilter" class="filter-select">
+                    <option value="">Todos los precios</option>
+                    <option value="0-500">$0 - $500</option>
+                    <option value="500-1000">$500 - $1000</option>
+                    <option value="1000+">$1000+</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Catálogo de productos -->
+        <section class="catalog-section">
+            <div class="catalog-grid" id="catalogGrid">
+                <!-- Los productos se generarán con JavaScript -->
+            </div>
+        </section>
+
+        <!-- Carrito de compras -->
+        <section class="cart-section">
+            <h2>Carrito de Compras</h2>
+            <div class="cart-container">
+                <div class="cart-items" id="cartItems">
+                    <p class="empty-cart">El carrito está vacío</p>
+                </div>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Impuestos (10%):</span>
+                        <span id="taxes">$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    <button class="btn-checkout" id="checkoutBtn">Proceder al Pago</button>
+                    <button class="btn-clear" id="clearCartBtn">Limpiar Carrito</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Widget Chatbot Flotante -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <button id="chatbot-toggle" class="chatbot-toggle">💬 Chat</button>
+        <div id="chatbot-window" class="chatbot-window hidden">
+            <div class="chatbot-header">
+                <h3>Asistente Virtual</h3>
+                <button id="close-chatbot" class="close-btn">✕</button>
+            </div>
+            <div id="chat-messages"></div>
+            <div class="chat-input-wrapper">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
+                <button id="send-btn">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Datos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="catalogo.js"></script>
+</body>
+</html>
