@@ -986,6 +986,28 @@ main {
     box-sizing: border-box;
   }
 }
+/* Ensure chatbot stays inside viewport on small screens */
+@media (max-width: 900px) {
+  .chatbot-widget {
+    right: 8px;
+    left: auto;
+  }
+
+  .chatbot-window {
+    position: fixed !important;
+    right: 8px !important;
+    left: auto !important;
+    bottom: 90px !important;
+    width: calc(100vw - 32px) !important;
+    max-width: 360px !important;
+    height: auto !important;
+    z-index: 2000;
+  }
+
+  .chatbot-window.visible {
+    display: flex;
+  }
+}
 /* Also apply stacked style for slightly larger mobile/tablet widths to match device viewports */
 @media (max-width: 768px) {
   #opcionesindex {
