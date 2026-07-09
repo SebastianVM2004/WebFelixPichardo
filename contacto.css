@@ -44,7 +44,7 @@ header h1 {
   text-align: center;
 }
 
-ul {
+#opcionesindex {
   display: flex;
   flex-direction: row;
   list-style: none;
@@ -55,30 +55,42 @@ ul {
   flex-wrap: wrap;
 }
 
-li {
-  padding: 12px 25px;
+#opcionesindex li {
+  padding: 0;
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid var(--color-accent-gold);
   border-radius: 50px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-li:hover {
+#opcionesindex li:hover {
   background: var(--color-accent-gold);
   transform: translateY(-6px);
   box-shadow: 0 8px 24px rgba(253, 185, 19, 0.5);
 }
 
-li a {
+#opcionesindex li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 44px;
+  padding: 12px 25px;
   text-decoration: none;
   color: white;
   font-weight: 600;
   font-size: 1.05em;
   letter-spacing: 0.5px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
-li:hover a {
+#opcionesindex li:hover a {
   color: var(--color-primary-dark);
 }
 
@@ -517,13 +529,17 @@ footer p {
     margin-bottom: 10px;
   }
 
-  ul {
+  #opcionesindex {
     gap: 8px;
     padding: 12px;
   }
 
-  li {
-    flex: 1 1 100%;
+  #opcionesindex li {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 0;
+  }
+
+  #opcionesindex li a {
     padding: 10px 12px;
     font-size: 0.95em;
   }
@@ -565,6 +581,15 @@ footer p {
     margin: 0 auto;
     bottom: 75px;
     max-width: 360px;
+  }
+
+  .chat-input-wrapper {
+    flex-direction: column;
+  }
+
+  #user-input,
+  #send-btn {
+    width: 100%;
   }
 
   .chatbot-toggle {

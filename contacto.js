@@ -82,7 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Toggle del chatbot
-    chatbotToggle.addEventListener('click', function() {
+    chatbotToggle.addEventListener('click', function(event) {
+        event.preventDefault();
         if (chatbotWindow.classList.contains('hidden')) {
             chatbotWindow.classList.remove('hidden');
             chatbotWindow.classList.add('visible');

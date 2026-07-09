@@ -20,15 +20,21 @@ const responses = {
 };
 
 // Toggle del widget de chatbot
-document.getElementById("chatbot-toggle").addEventListener("click", function() {
-    let respuesta = "¡Hola! Soy tu asistente virtual. Pregúntame sobre horario, precio o envío.";
-    const window = document.getElementById("chatbot-window");
-    const chatDiv = document.getElementById("chat-messages");
-    chatDiv.innerHTML = `<div class="message bot-message"><strong>Bot:</strong> ${respuesta}</div>`;
-    
-    window.classList.toggle("hidden");
-    window.classList.toggle("visible");
-});
+const chatbotToggle = document.getElementById("chatbot-toggle");
+const chatbotWindow = document.getElementById("chatbot-window");
+
+if (chatbotToggle && chatbotWindow) {
+  chatbotToggle.addEventListener("click", function(event) {
+      event.preventDefault();
+      let respuesta = "¡Hola! Soy tu asistente virtual. Pregúntame sobre horario, precio o envío.";
+      const chatDiv = document.getElementById("chat-messages");
+      if (chatDiv) {
+        chatDiv.innerHTML = `<div class="message bot-message"><strong>Bot:</strong> ${respuesta}</div>`;
+      }
+      chatbotWindow.classList.toggle("hidden");
+      chatbotWindow.classList.toggle("visible");
+  });
+}
 
 // Cerrar chatbot
 document.getElementById("close-chatbot").addEventListener("click", function() {

@@ -301,7 +301,8 @@ function configurarChatbot() {
         'default': 'Puedo ayudarte con: precios, servicios, carrito, pago, envío. ¿Qué deseas saber?'
     };
 
-    chatbotToggle.addEventListener('click', function() {
+    chatbotToggle.addEventListener('click', function(event) {
+        event.preventDefault();
         if (chatbotWindow.classList.contains('hidden')) {
             chatbotWindow.classList.remove('hidden');
             chatbotWindow.classList.add('visible');
