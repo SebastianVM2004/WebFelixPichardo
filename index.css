@@ -1065,6 +1065,64 @@ main {
     display: flex;
   }
 }
+
+/* Other-articles: stack image above text on small phones (index page) */
+@media (max-width: 480px) {
+  #other-articles-container {
+    padding: 18px 12px;
+  }
+
+  .article-list {
+    gap: 14px;
+  }
+
+  .article-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 14px;
+    align-items: start;
+    background: white;
+  }
+
+  .article-thumb {
+    width: 100%;
+    min-height: 110px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: block;
+  }
+
+  .article-info {
+    display: block;
+    padding: 6px 2px 0 2px;
+  }
+
+  .article-category {
+    font-size: 0.78em;
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+  }
+
+  .article-card h3 {
+    font-size: 1.05em;
+    margin: 0 0 6px 0;
+  }
+
+  .article-card p {
+    margin: 0;
+    font-size: 0.95em;
+    line-height: 1.45;
+    color: #5d6572;
+  }
+
+  .article-action {
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+
+  .more-articles-wrapper { margin-top: 18px; }
+}
 /* Also apply stacked style for slightly larger mobile/tablet widths to match device viewports */
 @media (max-width: 768px) {
   #opcionesindex {
