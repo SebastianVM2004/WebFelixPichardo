@@ -145,64 +145,56 @@ main {
 
 .article-card {
   display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  gap: 22px;
-  align-items: start;
-  padding: 24px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(245,250,255,0.96));
-  border: 1px solid rgba(13, 27, 42, 0.06);
-  box-shadow: 0 8px 22px rgba(13, 27, 42, 0.05);
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.article-card:hover,
-.article-card.hovered {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(13, 27, 42, 0.08);
-  border-color: rgba(253, 185, 19, 0.28);
-}
-
-.article-card.active {
-  border-color: rgba(253, 185, 19, 0.28);
-  box-shadow: 0 12px 30px rgba(13, 27, 42, 0.08);
+  grid-template-columns: 120px minmax(0, 1fr) 40px;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 20px;
+  background: white;
+  border-radius: 18px;
+  border: 1px solid rgba(26, 58, 74, 0.12);
+  box-shadow: 0 8px 24px rgba(13, 27, 42, 0.05);
 }
 
 .article-thumb {
   width: 100%;
-  min-height: 130px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(26,58,74,0.08), rgba(253,185,19,0.18));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #5b6c7f;
-  font-weight: 700;
-  border: 1px solid rgba(26, 58, 74, 0.08);
+  min-height: 90px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(26, 58, 74, 0.1), rgba(253, 185, 19, 0.18));
+  border: 1px solid rgba(26, 58, 74, 0.12);
 }
 
-.article-description {
+.article-info {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
-.article-description h3 {
+.article-category {
+  font-size: 0.82em;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-accent-gold);
+  font-weight: 700;
+}
+
+.article-card h3 {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.15em;
   color: var(--color-primary-dark);
 }
 
-.article-description p {
+.article-card p {
   margin: 0;
   color: #5d6572;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-.article-meta {
-  color: #7d8793;
-  font-size: 0.95em;
+.article-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  color: var(--color-accent-gold);
 }
 
 @media (max-width: 850px) {
