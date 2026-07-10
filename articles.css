@@ -143,30 +143,102 @@ main {
   gap: 18px;
 }
 
+.article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
 .article-card {
   display: grid;
-  grid-template-columns: 120px minmax(0, 1fr) 40px;
+  grid-template-columns: 80px minmax(0, 1fr) 40px;
   gap: 18px;
   align-items: center;
   padding: 18px 20px;
   background: white;
   border-radius: 18px;
-  border: 1px solid rgba(26, 58, 74, 0.12);
-  box-shadow: 0 8px 24px rgba(13, 27, 42, 0.05);
+  border: 1px solid rgba(26, 58, 74, 0.06);
+  box-shadow: 0 6px 18px rgba(13, 27, 42, 0.04);
 }
 
 .article-thumb {
-  width: 100%;
-  min-height: 90px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(26, 58, 74, 0.1), rgba(253, 185, 19, 0.18));
-  border: 1px solid rgba(26, 58, 74, 0.12);
+  width: 80px;
+  min-height: 0;
+  border-radius: 12px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .article-info {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+/* Thumbnail image sizing for list view */
+.article-thumb img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Responsive: stack article card on small screens */
+@media (max-width: 700px) {
+  .article-list {
+    gap: 14px;
+  }
+
+  .article-card {
+    grid-template-columns: 1fr;
+    padding: 14px;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .article-thumb {
+    width: 100%;
+    display: block;
+    margin: 0 0 8px 0;
+    border-radius: 12px;
+  }
+
+  .article-thumb img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .article-action {
+    justify-self: end;
+    align-self: center;
+    font-size: 1.4em;
+  }
+
+  .article-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .article-info p {
+    font-size: 0.95rem;
+  }
+
+  .article-card {
+    box-shadow: 0 6px 18px rgba(13, 27, 42, 0.04);
+  }
+}
+
+@media (max-width: 400px) {
+  .article-info h3 { font-size: 1rem; }
+  .article-info p { font-size: 0.9rem; }
+  .article-card { padding: 12px; }
 }
 
 .article-category {
