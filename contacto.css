@@ -312,6 +312,7 @@ main {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  overflow: hidden;
   font-weight: 700;
   font-size: 1.5em;
   text-decoration: none;
@@ -334,6 +335,20 @@ main {
 
 .social-btn.instagram {
   background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+}
+
+.social-btn.spotify {
+  background: #000000 url("assets/Spotify.png") center/60% no-repeat;
+  border-color: rgba(253, 185, 19, 0.8);
+}
+
+.social-btn.poderato {
+  background: #000000 url("assets/Poderato.png") center/60% no-repeat;
+  border-color: rgba(253, 185, 19, 0.8);
+}
+
+.social-btn img {
+  display: none;
 }
 
 .social-btn:hover {

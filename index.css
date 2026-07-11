@@ -610,6 +610,70 @@ main {
   font-size: 0.95em;
 }
 
+.social-section {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(13, 27, 42, 0.15);
+  border-left: 4px solid var(--color-accent-gold);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.social-section h2 {
+  color: var(--color-primary-dark);
+  font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 30px;
+  border-bottom: 3px solid var(--color-accent-gold);
+  padding-bottom: 15px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.05em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 3px solid var(--color-accent-gold);
+  color: white;
+  overflow: hidden;
+}
+
+.social-btn.linkedin {
+  background: #0a66c2;
+}
+
+.social-btn.spotify {
+  background: #000000 url("assets/Spotify.png") center/60% no-repeat;
+}
+
+.social-btn.poderato {
+  background: #000000 url("assets/Poderato.png") center/60% no-repeat;
+  border-color: rgba(253, 185, 19, 0.8);
+}
+
+.social-btn img {
+  display: none;
+}
+
+.social-btn:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(253, 185, 19, 0.4);
+}
+
 /* Responsive: stack contact info and aside on small screens */
 @media (max-width: 760px) {
   .contact-grid {
