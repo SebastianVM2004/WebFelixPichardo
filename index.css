@@ -1264,43 +1264,7 @@ main {
   }
 
 
-/* Mobile: stacked menu appearance (only affects <=650px) */
-@media (max-width: 650px) {
-  #opcionesindex {
-    width: 100%;
-    max-width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    padding: 12px 18px 10px;
-    border-bottom: 1px solid rgba(253, 185, 19, 0.22);
-  }
 
-  #opcionesindex li {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-    padding: 0;
-    background: transparent;
-    border: none;
-  }
-
-  #opcionesindex li a {
-    display: block;
-    width: 100%;
-    padding: 14px 18px 10px;
-    text-align: center;
-    font-size: 1.05em;
-    box-sizing: border-box;
-    border-bottom: 2px solid transparent;
-  }
-
-  #opcionesindex li:hover a,
-  #opcionesindex li.active a {
-    color: var(--color-accent-gold);
-    border-color: var(--color-accent-gold);
-  }
-}
 /* Ensure chatbot stays inside viewport on small screens */
 @media (max-width: 900px) {
   .chatbot-widget {
@@ -1382,33 +1346,52 @@ main {
   .more-articles-wrapper { margin-top: 18px; }
 }
 /* Also apply stacked style for slightly larger mobile/tablet widths to match device viewports */
-@media (max-width: 768px) {
-  #opcionesindex {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 12px 18px;
-  }
+@media (max-width:768px){
 
-  #opcionesindex li {
-    width: 100%;
-    max-width: 640px;
-    border-radius: 28px;
-    padding: 0;
-    background: rgba(26,58,74,0.12);
-    border: 3px solid var(--color-accent-gold);
-  }
+    #opcionesindex{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:12px;
+        padding:0 20px 10px;
+        border-bottom:1px solid rgba(253,185,19,.22);
+    }
 
-  #opcionesindex li a {
-    display: block;
-    width: 100%;
-    padding: 16px 20px;
-    text-align: center;
-    font-size: 1.05em;
-    box-sizing: border-box;
-    color: white;
-  }
+    #opcionesindex li{
+        width:100%;
+        background:transparent;
+        border:none;
+        border-radius:0;
+        padding:0;
+    }
+
+    #opcionesindex li a{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        width:100%;
+        min-height:44px;
+
+        padding:12px 18px 10px;
+
+        color:white;
+        font-size:1.05em;
+        font-weight:600;
+
+        border-bottom:2px solid transparent;
+        text-decoration:none;
+    }
+
+    #opcionesindex li:hover a,
+    #opcionesindex li.active a{
+        color:var(--color-accent-gold);
+        border-bottom-color:var(--color-accent-gold);
+    }
 }
+
+
+
 @media (min-width: 901px) {
   .chatbot-window {
     position: absolute;
