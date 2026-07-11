@@ -28,7 +28,8 @@
 /* Estilos para la página de Conferencias */
 *,*::before,*::after{box-sizing:border-box}
 :root{--color-primary-dark:#0d1b2a;--color-accent-gold:#fdb913;--neutral:#f5f7fa}
-body{font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;margin:0;background:linear-gradient(135deg,var(--neutral),#e8f1f7);color:var(--color-primary-dark)}
+body{font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;margin:0;min-height:100vh;background:radial-gradient(circle at top left, rgba(70, 145, 220, 0.35), transparent 20%),radial-gradient(circle at bottom right, rgba(20, 78, 153, 0.32), transparent 18%),linear-gradient(135deg,#d6ecff 0%,#b1d7fb 33%,#88b8ea 67%,#5f8ed8 100%);background-repeat:no-repeat;background-size:110% 110%,110% 110%,250% 250%;animation:blueGlow 16s ease infinite;color:var(--color-primary-dark)}
+@keyframes blueGlow{0%,100%{background-position:0% 0%,100% 100%,0% 0%}50%{background-position:20% 12%,80% 88%,100% 100%}}
 header{background:linear-gradient(135deg,#0d1b2a,#1a3a4a);padding:20px 0;color:#fff;border-bottom:3px solid var(--color-accent-gold)}
 header h1{margin:0;text-align:center;font-size:2em}
 #opcionesindex{display:flex;gap:12px;justify-content:center;list-style:none;padding:12px;margin:12px 0;flex-wrap:wrap}
