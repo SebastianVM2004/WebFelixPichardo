@@ -1,28 +1,38 @@
 /* Mobile: stacked menu appearance (only affects <=650px) */
 @media (max-width: 650px) {
 	#opcionesindex {
+		width: 100%;
+		max-width: 100%;
 		flex-direction: column;
 		align-items: center;
-		gap: 16px;
-		padding: 12px 18px;
+		gap: 14px;
+		padding: 12px 18px 10px;
+		border-bottom: 1px solid rgba(253,185,19,0.22);
 	}
 
 	#opcionesindex li {
 		width: 100%;
-		max-width: 520px;
-		border-radius: 28px;
+		max-width: 100%;
+		border-radius: 0;
 		padding: 0;
 		background: transparent;
-		border-width: 3px;
+		border: none;
 	}
 
 	#opcionesindex li a {
 		display: block;
 		width: 100%;
-		padding: 14px 18px;
+		padding: 14px 18px 10px;
 		text-align: center;
 		font-size: 1.05em;
 		box-sizing: border-box;
+		border-bottom: 2px solid transparent;
+	}
+
+	#opcionesindex li:hover a,
+	#opcionesindex li.active a {
+		color: var(--color-accent-gold);
+		border-color: var(--color-accent-gold);
 	}
 }
 /* Estilos para la página de Conferencias */
@@ -32,9 +42,11 @@ body{font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;margin:0;min-heig
 @keyframes blueGlow{0%,100%{background-position:0% 0%,100% 100%,0% 0%}50%{background-position:20% 12%,80% 88%,100% 100%}}
 header{background:linear-gradient(135deg,#0d1b2a,#1a3a4a);padding:20px 0;color:#fff;border-bottom:3px solid var(--color-accent-gold)}
 header h1{margin:0;text-align:center;font-size:2em}
-#opcionesindex{display:flex;gap:12px;justify-content:center;list-style:none;padding:12px;margin:12px 0;flex-wrap:wrap}
-#opcionesindex li{padding:0;border-radius:40px;background:rgba(255,255,255,0.06);border:2px solid var(--color-accent-gold);display:flex;align-items:center;justify-content:center;overflow:hidden}
-#opcionesindex li a{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;padding:8px 18px;text-decoration:none;color:#fff;font-weight:600;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#opcionesindex{display:flex;gap:12px;justify-content:center;list-style:none;padding:12px 0 10px;margin:12px 0 0;flex-wrap:wrap;border-bottom:1px solid rgba(253,185,19,0.22)}
+#opcionesindex li{padding:0;background:transparent;border:none;border-radius:0;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:transform 0.2s ease}
+#opcionesindex li:hover{transform:translateY(-2px)}
+#opcionesindex li a{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;padding:10px 18px 8px;text-decoration:none;color:#fff;font-weight:600;font-size:1.05em;letter-spacing:0.5px;border-bottom:2px solid transparent;transition:color 0.2s ease,border-color 0.2s ease;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#opcionesindex li:hover a,#opcionesindex li.active a{color:var(--color-accent-gold);border-color:var(--color-accent-gold)}
 main{max-width:1100px;margin:30px auto;padding:0 16px}
 .hero{background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,251,255,0.98));padding:24px;border-radius:18px;box-shadow:0 10px 30px rgba(13,27,42,0.05);border:1px solid rgba(13,27,42,0.04);text-align:center;margin-bottom:24px}
 .list-conferences{background:linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,251,255,0.96));border-radius:18px;padding:20px;margin-bottom:20px;border:1px solid rgba(13,27,42,0.04);box-shadow:0 10px 30px rgba(13,27,42,0.05)}
