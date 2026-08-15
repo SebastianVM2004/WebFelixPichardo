@@ -167,3 +167,29 @@ setupServiceCarousel();
 setInterval(function() {
     moveToNext();
 }, 5000);
+
+// Cargar contenido dinámico (textoentrada e imagenautor)
+function loadContent() {
+    fetch('content/content.json')
+        .then(resp => resp.ok ? resp.json() : Promise.reject('No content'))
+        .then(data => {
+            if (data.textoentrada) {
+                const welcomeDiv = document.querySelector('.Texto-bienvenida');
+                if (welcomeDiv) welcomeDiv.innerHTML = data.textoentrada;
+            }
+            if (data.imagenautor) {
+                const authorImg = document.querySelector('.author-card img');
+                if (authorImg) authorImg.src = data.imagenautor;
+            }
+        })
+        .catch(err => {
+            console.warn('No se pudo cargar content/content.json:', err);
+        });
+}
+
+// Ejecutar después de cargar DOM
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadContent);
+} else {
+    loadContent();
+}
