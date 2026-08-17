@@ -1,23 +1,21 @@
 backend:
-  name: github
-  repo: TUUSUARIO/TUREPO
+  name: git-gateway
   branch: main
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+media_folder: "static/images"
+public_folder: "/images"
+
+publish_mode: editorial_workflow
 
 collections:
-  - name: "contenido"
-    label: "Contenido principal"
-    files:
-      - file: "content/content.json"
-        label: "Contenido principal"
-        name: "contenido_principal"
-        format: "json"
-        fields:
-          - label: "Texto de bienvenida"
-            name: "textoentrada"
-            widget: "text"
-          - label: "Foto del autor"
-            name: "imagenautor"
-            widget: "image"
+  - name: "posts"
+    label: "Artículos"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false }
+      - { label: "Imagen destacada", name: "thumbnail", widget: "image", required: false }
+      - { label: "Contenido", name: "body", widget: "markdown" }

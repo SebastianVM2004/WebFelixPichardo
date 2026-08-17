@@ -1,11 +1,22 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin - Netlify CMS</title>
-  </head>
-  <body>
-    <script src="https://unpkg.com/netlify-cms@^2.10.1/dist/netlify-cms.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Netlify CMS</title>
+</head>
+<body>
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <!-- Opcional: widget de Identity para login visual -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <script>
+    // Inicialización mínima: Netlify CMS cargará config.yml automáticamente
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        // noop
+      });
+    }
+  </script>
+</body>
 </html>
