@@ -1,23 +1,23 @@
 backend:
   name: github
-  repo: TUUSUARIO/TUREPO   # reemplaza con tu usuario y repo en GitHub
+  repo: TUUSUARIO/TUREPO
   branch: main
 
-media_folder: "static/images"   # dónde se guardan las imágenes en tu repo
-public_folder: "/images"
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
 
 collections:
   - name: "contenido"
     label: "Contenido principal"
     files:
-      - file: "content/textoentrada.yml"
-        label: "Texto Liderazgo"
-        name: "textoentrada"
+      - file: "content/content.json"
+        label: "Contenido principal"
+        name: "contenido_principal"
+        format: "json"
         fields:
-          - {label: "Texto debajo del título", name: "texto", widget: "text"}
-
-      - file: "content/imagenautor.yml"
-        label: "Imagen Autor"
-        name: "imagenautor"
-        fields:
-          - {label: "Foto del autor", name: "photo", widget: "image"}
+          - label: "Texto de bienvenida"
+            name: "textoentrada"
+            widget: "text"
+          - label: "Foto del autor"
+            name: "imagenautor"
+            widget: "image"
