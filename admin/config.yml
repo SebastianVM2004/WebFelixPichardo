@@ -8,14 +8,46 @@ public_folder: "/images"
 publish_mode: editorial_workflow
 
 collections:
+
+  # ==========================================
+  # ARTÍCULOS
+  # ==========================================
   - name: "posts"
     label: "Artículos"
     folder: "content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+
     fields:
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Fecha", name: "date", widget: "datetime" }
       - { label: "Resumen", name: "summary", widget: "text", required: false }
       - { label: "Imagen destacada", name: "thumbnail", widget: "image", required: false }
       - { label: "Contenido", name: "body", widget: "markdown" }
+
+  # ==========================================
+  # PÁGINA PRINCIPAL
+  # ==========================================
+  - label: "Página principal"
+    name: "homepage"
+
+    files:
+
+      - label: "Contenido de inicio"
+        name: "homepage"
+        file: "content/content.json"
+
+        fields:
+
+          - label: "Título"
+            name: "titulo"
+            widget: "string"
+
+          - label: "Texto de bienvenida"
+            name: "textoentrada"
+            widget: "richtext"
+
+          - label: "Imagen del autor"
+            name: "imagenautor"
+            widget: "image"
+            required: false
