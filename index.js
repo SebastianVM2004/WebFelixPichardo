@@ -205,7 +205,7 @@ function getPublishedImagePath(path) {
 }
 
 function loadContent() {
-    fetch('content/content.json')
+    fetch(`content/content.json?ts=${Date.now()}`, { cache: 'no-store' })
         .then(resp => resp.ok ? resp.json() : Promise.reject('No content'))
         .then(data => {
             const welcomeDiv = document.querySelector('.Texto-bienvenida');
@@ -215,9 +215,19 @@ function loadContent() {
 
             const authorImg = document.getElementById('author-image');
             if (authorImg && data.imagenautor) {
-                authorImg.src = getPublishedImagePath(data.imagenautor);
+                const publishedImagePath = getPublishedImagePath(data.imagenautor);
+                const imageCandidates = [
+                    publishedImagePath,
+                    publishedImagePath.replace(/^\/+/, ''),
+                    'assets/perfil.jpg'
+                ];
+                let imageCandidateIndex = 0;
+                authorImg.src = imageCandidates[imageCandidateIndex];
                 authorImg.onerror = () => {
-                    authorImg.src = 'assets/perfil.jpg';
+                    imageCandidateIndex += 1;
+                    if (imageCandidateIndex < imageCandidates.length) {
+                        authorImg.src = imageCandidates[imageCandidateIndex];
+                    }
                 };
             }
         })
