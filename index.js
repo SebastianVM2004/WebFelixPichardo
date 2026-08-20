@@ -193,6 +193,17 @@ function renderWelcomeContent(value) {
         .join('');
 }
 
+function getPublishedImagePath(path) {
+    const imagePath = String(path).trim();
+
+    // Compatibilidad con publicaciones antiguas que usaban /images.
+    if (imagePath.startsWith('/images/')) {
+        return `/assets/${imagePath.slice('/images/'.length)}`;
+    }
+
+    return imagePath;
+}
+
 function loadContent() {
     fetch('content/content.json')
         .then(resp => resp.ok ? resp.json() : Promise.reject('No content'))
@@ -202,9 +213,12 @@ function loadContent() {
                 welcomeDiv.innerHTML = renderWelcomeContent(data.textoentrada);
             }
 
-            const authorImg = document.querySelector('.author-card img');
+            const authorImg = document.getElementById('author-image');
             if (authorImg && data.imagenautor) {
-                authorImg.src = data.imagenautor;
+                authorImg.src = getPublishedImagePath(data.imagenautor);
+                authorImg.onerror = () => {
+                    authorImg.src = 'assets/perfil.jpg';
+                };
             }
         })
         .catch(err => {
