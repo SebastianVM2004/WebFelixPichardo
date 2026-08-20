@@ -168,65 +168,19 @@ setInterval(function() {
     moveToNext();
 }, 5000);
 
-// Cargar contenido dinámico (textoentrada e imagenautor)
-// Cargar contenido dinámico (textoentrada e imagenautor) y hacerlo editable
+// Cargar el contenido publicado desde Netlify CMS.
 function loadContent() {
     fetch('content/content.json')
         .then(resp => resp.ok ? resp.json() : Promise.reject('No content'))
         .then(data => {
-            
-            // 1. Lógica para el Texto de Bienvenida
             const welcomeDiv = document.querySelector('.Texto-bienvenida');
             if (welcomeDiv && data.textoentrada) {
                 welcomeDiv.innerHTML = data.textoentrada;
-                
-                // Hacer el texto editable
-                welcomeDiv.setAttribute('contenteditable', 'true');
-                welcomeDiv.style.outline = '1px dashed #ccc'; // Indicador visual sutil
-                welcomeDiv.title = 'Haz clic para editar el texto';
-
-                // Capturar el nuevo texto cuando el usuario hace clic fuera (pierde el foco)
-                welcomeDiv.addEventListener('blur', function() {
-                    console.log('Nuevo texto listo para guardar:', this.innerHTML);
-                    // Aquí en el futuro enviarías este dato a tu servidor
-                });
             }
 
-            // 2. Lógica para la Imagen del Autor
             const authorImg = document.querySelector('.author-card img');
             if (authorImg && data.imagenautor) {
                 authorImg.src = data.imagenautor;
-                
-                // Dar estilo de botón a la imagen
-                authorImg.style.cursor = 'pointer';
-                authorImg.title = 'Haz clic para cambiar la foto';
-
-                // Crear un input de archivo oculto
-                const fileInput = document.createElement('input');
-                fileInput.type = 'file';
-                fileInput.accept = 'image/*';
-                fileInput.style.display = 'none';
-                document.body.appendChild(fileInput);
-
-                // Abrir el explorador de archivos al hacer clic en la imagen
-                authorImg.addEventListener('click', () => {
-                    fileInput.click();
-                });
-
-                // Cambiar la imagen en pantalla cuando el usuario selecciona una nueva
-                fileInput.addEventListener('change', function(event) {
-                    const file = event.target.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            // Mostrar la nueva imagen
-                            authorImg.src = e.target.result;
-                            console.log('Nueva imagen cargada (Base64) lista para guardar.');
-                            // Aquí en el futuro enviarías la imagen a tu servidor
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                });
             }
         })
         .catch(err => {
