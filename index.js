@@ -169,13 +169,37 @@ setInterval(function() {
 }, 5000);
 
 // Cargar el contenido publicado desde Netlify CMS.
+function escapeHtml(value) {
+    return value.replace(/[&<>'"]/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+    })[character]);
+}
+
+function renderWelcomeContent(value) {
+    const content = String(value).trim();
+
+    // Conservar el HTML existente y convertir texto nuevo en párrafos seguros.
+    if (/<[a-z][\s\S]*>/i.test(content)) {
+        return content;
+    }
+
+    return content
+        .split(/\n{2,}/)
+        .map(paragraph => `<p>${escapeHtml(paragraph).replace(/\n/g, '<br>')}</p>`)
+        .join('');
+}
+
 function loadContent() {
     fetch('content/content.json')
         .then(resp => resp.ok ? resp.json() : Promise.reject('No content'))
         .then(data => {
             const welcomeDiv = document.querySelector('.Texto-bienvenida');
             if (welcomeDiv && data.textoentrada) {
-                welcomeDiv.innerHTML = data.textoentrada;
+                welcomeDiv.innerHTML = renderWelcomeContent(data.textoentrada);
             }
 
             const authorImg = document.querySelector('.author-card img');
