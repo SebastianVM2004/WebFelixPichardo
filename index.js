@@ -198,7 +198,7 @@ function getPublishedImagePath(path) {
 
     // Compatibilidad con publicaciones antiguas que usaban /images.
     if (imagePath.startsWith('/images/')) {
-        return `/assets/${imagePath.slice('/images/'.length)}`;
+        return `/static/images/${imagePath.slice('/images/'.length)}`;
     }
 
     return imagePath;
