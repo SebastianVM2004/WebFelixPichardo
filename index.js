@@ -213,13 +213,13 @@ function loadContent() {
                 welcomeDiv.innerHTML = renderWelcomeContent(data.textoentrada);
             }
 
-            const authorImg = document.getElementById('author-image');
+            const authorImg = document.querySelector('[data-content-field="imagenautor"]');
             if (authorImg && data.imagenautor) {
                 const publishedImagePath = getPublishedImagePath(data.imagenautor);
                 const imageCandidates = [
                     publishedImagePath,
                     publishedImagePath.replace(/^\/+/, ''),
-                    'assets/perfil.jpg'
+                    'static/images/lolchicas.png'
                 ];
                 let imageCandidateIndex = 0;
                 authorImg.src = imageCandidates[imageCandidateIndex];
