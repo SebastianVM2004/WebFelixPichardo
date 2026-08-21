@@ -208,7 +208,7 @@ function loadContent() {
     fetch(`content/content.json?ts=${Date.now()}`, { cache: 'no-store' })
         .then(resp => resp.ok ? resp.json() : Promise.reject('No content'))
         .then(data => {
-            const welcomeDiv = document.querySelector('.Texto-bienvenida');
+            const welcomeDiv = document.querySelector('[data-content-field="textoentrada"]');
             if (welcomeDiv && data.textoentrada) {
                 welcomeDiv.innerHTML = renderWelcomeContent(data.textoentrada);
             }
