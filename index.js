@@ -193,6 +193,44 @@ function renderWelcomeContent(value) {
         .join('');
 }
 
+function renderEditableFields(data) {
+    document.querySelectorAll('[data-content-field]').forEach(element => {
+        const field = element.dataset.contentField;
+        if (field === 'textoentrada' || field === 'imagenautor') return;
+        if (data[field] !== undefined && data[field] !== null) {
+            element.textContent = data[field];
+        }
+    });
+}
+
+function renderServices(services) {
+    if (!servicesCarousel || !Array.isArray(services)) return;
+
+    servicesCarousel.innerHTML = '';
+    services.forEach(service => {
+        const card = document.createElement('article');
+        card.className = 'service-card';
+
+        const image = document.createElement('img');
+        image.src = getPublishedImagePath(service.image || '');
+        image.alt = service.imageAlt || service.title || 'Servicio';
+
+        const title = document.createElement('h3');
+        title.textContent = service.title || '';
+
+        const description = document.createElement('p');
+        description.textContent = service.description || '';
+
+        card.append(image, title, description);
+        if (service.date) {
+            const date = document.createElement('p');
+            date.textContent = service.date;
+            card.appendChild(date);
+        }
+        servicesCarousel.appendChild(card);
+    });
+}
+
 function getPublishedImagePath(path) {
     const imagePath = String(path).trim();
 
@@ -208,6 +246,10 @@ function loadContent() {
     fetch(`content/content.json?ts=${Date.now()}`, { cache: 'no-store' })
         .then(resp => resp.ok ? resp.json() : Promise.reject('No content'))
         .then(data => {
+            renderEditableFields(data);
+            renderServices(data.services);
+            setupServiceCarousel();
+
             const welcomeDiv = document.querySelector('[data-content-field="textoentrada"]');
             if (welcomeDiv && data.textoentrada) {
                 welcomeDiv.innerHTML = renderWelcomeContent(data.textoentrada);
