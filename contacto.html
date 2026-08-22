@@ -16,29 +16,31 @@
     <main>
         <div class="contact-container">
             <section class="contact-info">
-                <h2>Información de Contacto</h2>
+                <h2 data-content-field="contactPageHeading">Información de Contacto</h2>
                 <div class="info-grid">
                     <div class="info-card">
                         <div class="info-icon">📍</div>
                         <h3>Dirección</h3>
-                        <p>Calle Principal 123<br>Ciudad, País<br>CP: 28000</p>
+                        <p data-contact-field="address">Calle Principal 123<br>Ciudad, País<br>CP: 28000</p>
                     </div>
                     <div class="info-card">
                         <div class="info-icon">📞</div>
                         <h3>Teléfono</h3>
-                        <p>+5255 123 456 789<br>+01800 123 4567<br>Horario: Lun-Vie: 9am-6pm</p>
+                        <p data-contact-field="phone">+5255 123 456 789<br>+01800 123 4567<br>Horario: Lun-Vie: 9am-6pm</p>
                     </div>
                     <div class="info-card">
                         <div class="info-icon">📧</div>
                         <h3>Email</h3>
-                        <p>info@ejemplo.com<br>soporte@ejemplo.com<br>ventas@ejemplo.com</p>
+                        <p data-contact-field="email">info@ejemplo.com<br>soporte@ejemplo.com<br>ventas@ejemplo.com</p>
                     </div>
                 </div>
             </section>
 
             <section class="contact-form-section">
-                <h2>Envíanos un Mensaje</h2>
-                <form id="contactForm" class="contact-form">
+                <h2 data-contact-field="formHeading">Envíanos un Mensaje</h2>
+                <form id="contactForm" class="contact-form" name="contacto" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contacto">
+                    <p hidden><label>No llenar: <input name="bot-field"></label></p>
                     <div class="form-group">
                         <label for="nombre">Nombre Completo *</label>
                         <input type="text" id="nombre" name="nombre" required>
@@ -71,7 +73,7 @@
         </div>
 
         <section class="social-section">
-            <h2>Síguenos en Redes Sociales</h2>
+            <h2 data-contact-field="socialHeading">Síguenos en Redes Sociales</h2>
             <div class="social-links">
                 <a href="#" class="social-btn facebook" title="Facebook">f</a>
                 <a href="#" class="social-btn spotify" title="Spotify" aria-label="Spotify"></a>

@@ -1,5 +1,6 @@
 // FORMULARIO DE CONTACTO
 document.addEventListener('DOMContentLoaded', function() {
+    cargarContenidoContacto();
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
 
@@ -25,26 +26,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Simular envío del formulario
-            console.log({
-                nombre,
-                email,
-                telefono,
-                asunto,
-                mensaje,
-                fecha: new Date().toLocaleString()
-            });
-
-            // Mostrar mensaje de éxito
-            mostrarMensaje('¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.', 'success');
-
-            // Limpiar formulario
-            contactForm.reset();
-
-            // Ocultar mensaje después de 5 segundos
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
+            const formData = new FormData(contactForm);
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error('No se pudo enviar el formulario');
+                    mostrarMensaje('¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.', 'success');
+                    contactForm.reset();
+                    setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+                })
+                .catch(() => mostrarMensaje('No se pudo enviar el mensaje. Inténtalo nuevamente.', 'error'));
         });
     }
 
@@ -59,6 +53,25 @@ document.addEventListener('DOMContentLoaded', function() {
         formMessage.style.display = 'block';
     }
 });
+
+function cargarContenidoContacto() {
+    fetch(`content/content.json?ts=${Date.now()}`, { cache: 'no-store' })
+        .then(response => response.json())
+        .then(data => {
+            const contactInfo = data.contactInfo || {};
+            document.querySelectorAll('[data-content-field]').forEach(element => {
+                const value = data[element.dataset.contentField];
+                if (value !== undefined && value !== null) element.textContent = value;
+            });
+            document.querySelectorAll('[data-contact-field]').forEach(element => {
+                const value = contactInfo[element.dataset.contactField];
+                if (value !== undefined && value !== null) {
+                    element.innerHTML = String(value).replace(/\n/g, '<br>');
+                }
+            });
+        })
+        .catch(error => console.warn('No se pudo cargar el contacto:', error));
+}
 
 // CHATBOT FLOTANTE
 document.addEventListener('DOMContentLoaded', function() {

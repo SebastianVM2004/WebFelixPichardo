@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Catálogo de Servicios</h1>
+        <h1 data-content-field="catalogTitle">Catálogo de Servicios</h1>
         <ul id="opcionesindex"></ul>
         <script src="nav.js"></script>
     </header>
@@ -17,7 +17,7 @@
         <!-- Filtros y búsqueda -->
         <section class="search-filter-section">
             <div class="search-container">
-                <input type="text" id="searchInput" class="search-input" placeholder="Buscar servicios...">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar servicios..." data-content-placeholder="catalogSearchPlaceholder">
                 <button id="searchBtn" class="search-btn">🔍</button>
             </div>
 
@@ -48,7 +48,7 @@
 
         <!-- Carrito de compras -->
         <section class="cart-section">
-            <h2>Carrito de Compras</h2>
+            <h2 data-content-field="cartHeading">Carrito de Compras</h2>
             <div class="cart-container">
                 <div class="cart-items" id="cartItems">
                     <p class="empty-cart">El carrito está vacío</p>
@@ -66,8 +66,8 @@
                         <span>Total:</span>
                         <span id="total">$0.00</span>
                     </div>
-                    <button class="btn-checkout" id="checkoutBtn">Proceder al Pago</button>
-                    <button class="btn-clear" id="clearCartBtn">Limpiar Carrito</button>
+                    <button class="btn-checkout" id="checkoutBtn" data-content-field="checkoutButton">Proceder al Pago</button>
+                    <button class="btn-clear" id="clearCartBtn" data-content-field="clearCartButton">Limpiar Carrito</button>
                 </div>
             </div>
         </section>

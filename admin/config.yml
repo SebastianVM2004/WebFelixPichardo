@@ -10,23 +10,7 @@ publish_mode: editorial_workflow
 collections:
 
   # ==========================================
-  # ARTÍCULOS
-  # ==========================================
-  - name: "posts"
-    label: "Artículos"
-    folder: "content/posts"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-
-    fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Fecha", name: "date", widget: "datetime" }
-      - { label: "Resumen", name: "summary", widget: "text", required: false }
-      - { label: "Imagen destacada", name: "thumbnail", widget: "image", required: false }
-      - { label: "Contenido", name: "body", widget: "markdown" }
-
-  # ==========================================
-  # PÁGINA PRINCIPAL
+  # CONTENIDO DEL SITIO
   # ==========================================
   - label: "Página principal"
     name: "homepage"
@@ -42,6 +26,19 @@ collections:
           - label: "Título del sitio"
             name: "siteTitle"
             widget: "string"
+
+          - { label: "Título de artículos", name: "articlesHeading", widget: "string" }
+          - { label: "Descripción de artículos", name: "articlesDescription", widget: "text" }
+          - { label: "Título de conferencias", name: "conferencesHeroTitle", widget: "string" }
+          - { label: "Descripción de conferencias", name: "conferencesHeroDescription", widget: "text" }
+          - { label: "Encabezado de próximas conferencias", name: "conferencesHeading", widget: "string" }
+          - { label: "Descripción de próximas conferencias", name: "conferencesDescription", widget: "text" }
+          - { label: "Título de la página de contacto", name: "contactPageHeading", widget: "string" }
+          - { label: "Título del catálogo", name: "catalogTitle", widget: "string" }
+          - { label: "Placeholder de búsqueda", name: "catalogSearchPlaceholder", widget: "string" }
+          - { label: "Título del carrito", name: "cartHeading", widget: "string" }
+          - { label: "Botón proceder al pago", name: "checkoutButton", widget: "string" }
+          - { label: "Botón limpiar carrito", name: "clearCartButton", widget: "string" }
 
           - label: "Texto de bienvenida"
             name: "textoentrada"
@@ -107,3 +104,47 @@ collections:
               - { label: "Título", name: "title", widget: "string" }
               - { label: "Descripción", name: "description", widget: "text" }
               - { label: "Fecha u horario", name: "date", widget: "string", required: false }
+
+          - label: "Artículos destacados"
+            name: "articles"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Imagen", name: "image", widget: "image", required: false }
+              - { label: "Texto alternativo", name: "imageAlt", widget: "string", required: false }
+              - { label: "Categoría", name: "category", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text" }
+
+          - label: "Productos del catálogo"
+            name: "products"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Nombre", name: "name", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text" }
+              - { label: "Precio", name: "price", widget: "number", value_type: "float", min: 0 }
+              - { label: "Categoría", name: "category", widget: "string" }
+              - { label: "Ícono", name: "emoji", widget: "string", required: false }
+
+          - label: "Conferencias"
+            name: "conferences"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Ponente", name: "speaker", widget: "string" }
+              - { label: "Fecha", name: "date", widget: "string" }
+              - { label: "Lugar", name: "location", widget: "string", required: false }
+              - { label: "Descripción", name: "description", widget: "text" }
+              - { label: "Imagen", name: "image", widget: "image", required: false }
+
+          - label: "Información de contacto"
+            name: "contactInfo"
+            widget: "object"
+            fields:
+              - { label: "Dirección", name: "address", widget: "text" }
+              - { label: "Teléfonos", name: "phone", widget: "text" }
+              - { label: "Correos", name: "email", widget: "text" }
+              - { label: "Título del formulario", name: "formHeading", widget: "string" }
+              - { label: "Título de redes", name: "socialHeading", widget: "string" }

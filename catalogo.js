@@ -1,5 +1,5 @@
 // DATOS DE PRODUCTOS
-const productos = [
+let productos = [
     {
         id: 1,
         nombre: 'Consultoría Estratégica',
@@ -71,11 +71,55 @@ let carrito = [];
 
 document.addEventListener('DOMContentLoaded', function() {
     cargarProductos();
+    cargarContenidoCatalogo();
     configurarBuscador();
     configurarFiltros();
     configurarCarrito();
     configurarChatbot();
 });
+
+function cargarContenidoCatalogo() {
+    fetch(`content/content.json?ts=${Date.now()}`, { cache: 'no-store' })
+        .then(response => response.json())
+        .then(data => {
+            document.querySelectorAll('[data-content-field]').forEach(element => {
+                const value = data[element.dataset.contentField];
+                if (value !== undefined && value !== null) element.textContent = value;
+            });
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput && data.catalogSearchPlaceholder) {
+                searchInput.placeholder = data.catalogSearchPlaceholder;
+            }
+            if (!Array.isArray(data.products)) return;
+            productos = data.products.map((producto, index) => ({
+                ...producto,
+                id: index + 1,
+                nombre: producto.name || producto.nombre || '',
+                descripcion: producto.description || producto.descripcion || '',
+                precio: Number(producto.price ?? producto.precio ?? 0),
+                categoria: producto.category || producto.categoria || '',
+                emoji: producto.emoji || '📦'
+            }));
+            actualizarCategorias();
+            cargarProductos();
+        })
+        .catch(error => console.warn('No se pudieron cargar los productos:', error));
+}
+
+function actualizarCategorias() {
+    const categoryFilter = document.getElementById('categoryFilter');
+    if (!categoryFilter) return;
+    const selectedCategory = categoryFilter.value;
+    const categories = [...new Set(productos.map(producto => producto.categoria).filter(Boolean))];
+    categoryFilter.innerHTML = '<option value="">Todas las categorías</option>';
+    categories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        categoryFilter.appendChild(option);
+    });
+    categoryFilter.value = categories.includes(selectedCategory) ? selectedCategory : '';
+}
 
 // CARGAR Y MOSTRAR PRODUCTOS
 function cargarProductos(filtros = {}) {
