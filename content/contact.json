@@ -1,0 +1,15 @@
+{
+  "contactPageHeading": "Información de Contacto",
+  "contactHeading": "Información de Contacto",
+  "contactPhone": "+551 234 567 890",
+  "contactEmail": "info@ejemplo.com",
+  "contactAddress": "Calle Principal 123, Ciudad",
+  "contactHours": "Horario de atención: Lun-Vie 9:00 - 18:00",
+  "contactInfo": {
+    "address": "Calle Principal 123, Ciudad",
+    "phone": "+551 234 567 890",
+    "email": "info@ejemplo.com",
+    "formHeading": "Contáctanos",
+    "socialHeading": "Síguenos"
+  }
+}

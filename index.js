@@ -243,7 +243,7 @@ function getPublishedImagePath(path) {
 }
 
 function loadContent() {
-    fetch(`content/content.json?ts=${Date.now()}`, { cache: 'no-store' })
+    fetch(`content/home.json?ts=${Date.now()}`, { cache: 'no-store' })
         .then(resp => resp.ok ? resp.json() : Promise.reject('No content'))
         .then(data => {
             renderEditableFields(data);
@@ -274,7 +274,7 @@ function loadContent() {
             }
         })
         .catch(err => {
-            console.warn('No se pudo cargar content/content.json:', err);
+            console.warn('No se pudo cargar content/home.json:', err);
         });
 }
 // Ejecutar después de cargar DOM

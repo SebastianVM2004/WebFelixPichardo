@@ -1,0 +1,64 @@
+{
+  "siteTitle": "Books Felix",
+  "textoentrada": "<p>Nos enseñaron que liderar es mandar, controlar, imponer resultados y sostener una imagen de éxito permanente...</p>",
+  "imagenautor": "/static/images/chatgpt-image-5-jun-2026-01_59_56-p.m..png",
+  "bookHeading": "En venta aqui!",
+  "bookDescription": "Conoce un liderazgo más humano, ético y realista en cada página.",
+  "authorHeading": "Autor",
+  "authorName": "Félix Pichardo Meuly",
+  "authorDescription": "Autor de \"Liderazgo utópico\". Conferencista y consultor en liderazgo humano y consciente.",
+  "authorServices": "Ofrezco asesoría, ponencia o consultoría de manera grupal o individual, sobre liderazgo y todos los conceptos que se desprenden de este (gestión de equipos, retroalimentación, análisis estadístico de KPI’s, reorganización de estructuras, planes de desarrollo, generación de perfiles, etc) combinando la creatividad, innovación, la psicología y la experiencia profesional de 20 años en diferentes industrias.",
+  "eventsHeading": "Eventos proximos!",
+  "eventsDescription": "No te pierdas los próximos eventos y talleres!",
+  "featuredArticleLabel": "Artículo más reciente",
+  "featuredArticleTitle": "La metodología 30-60-90",
+  "featuredArticleSummary": "Resumen: Análisis situacional que identifica falta de liderazgo local en el área de servicios, impactando a clientes internos (ingeniería, aplicacionistas, ventas, finanzas) y clientes externos (clientes finales y socios). Se reportan KPIs fuera de rango: tiempo de respuesta, cumplimiento de mantenimiento preventivo, tiempo entre fallas y NPS.",
+  "featuredArticleCategory": "Metodología / Análisis",
+  "featuredArticleDate": "10 julio 2026",
+  "featuredArticleNote": "Acción recomendada: aplicar plan 30-60-90 para recuperar liderazgo y estabilizar KPIs.",
+  "featuredArticleCta": "Saber más",
+  "otherArticlesHeading": "Más artículos",
+  "otherArticle1Title": "Desarrollo de habilidades",
+  "otherArticle1Description": "Programas de capacitación y evaluación para potenciar talento interno.",
+  "otherArticle2Title": "Gestión y Desarrollo de Proyectos",
+  "otherArticle2Description": "Diseño, planificación y ejecución de iniciativas con enfoque en innovación.",
+  "otherArticle3Title": "Análisis y de Desarrollo de KPI's",
+  "otherArticle3Description": "Medición y mejoras en indicadores clave para tomar decisiones informadas.",
+  "otherArticle4Title": "Gestión de Personal - Liderazgo",
+  "otherArticle4Description": "Coaching y desarrollo de líderes para mejorar la gestión de equipos.",
+  "otherArticlesCta": "Ver más",
+  "podcastLabel": "Podcast",
+  "podcastTitle": "De Todo un Poco — Indicadores Claves de Desempeño (KPI)",
+  "podcastDescription": "Un breve resumen del episodio y una invitación a escuchar el contenido completo en Poderato.",
+  "podcastCta": "Ver en Poderato",
+  "services": [
+    {
+      "image": "assets/expoLibro.png",
+      "imageAlt": "Presentación de libro Liderazgo Utópico",
+      "title": "Presentacion de libro Liderazgo Utópico",
+      "description": "Una conversación sobre poder, psicología, responsabilidad y nuevas formas de dirigir desde la congruencia.",
+      "date": "Sábado 25 de julio 2026 · 12:00 hrs"
+    },
+    {
+      "image": "assets/Habilidadesdelentrevistador.png",
+      "imageAlt": "Habilidades del entrevistador",
+      "title": "Platica Habilidades del entrevistador",
+      "description": "Clase de capacitacion por FÉLIX PICHARDO MEULY",
+      "date": "Viernes 10 de julio 2026 · 18:00 hrs"
+    },
+    {
+      "image": "assets/Consultorias.png",
+      "imageAlt": "Coaching personal",
+      "title": "Coaching Personal!!!",
+      "description": "Por el Maestro en Innovación para el Desarrollo Empresarial e Ingeniero ambas por parte del TEC y Psicólogo de la UNAM Félix Pichardo Meuly",
+      "date": ""
+    },
+    {
+      "image": "assets/GestionServicios.png",
+      "imageAlt": "Gestión de servicios",
+      "title": "Gestion de Servicios",
+      "description": "Consultoría en Gestión de M.I.D. FELIX PICHARDO MEULY Servicio de Consultoría en Gestión de M.I.D. por el Maestro en Innovación para el Desarrollo Empresarial e Ingeniero ambas por parte del TEC y Psicólogo de la UNAM Félix Pichardo Meuly",
+      "date": ""
+    }
+  ]
+}

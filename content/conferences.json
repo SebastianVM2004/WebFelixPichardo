@@ -1,0 +1,14 @@
+{
+  "conferencesHeading": "Próximas conferencias",
+  "conferencesDescription": "Agenda, detalles y material de las conferencias y presentaciones disponibles.",
+  "conferences": [
+    {
+      "title": "Presentacion de libro Liderazgo Utópico",
+      "speaker": "Félix Pichardo Meuly",
+      "date": "Sábado 25 de julio 2026 · 12:00 hrs",
+      "location": "En línea",
+      "description": "Una conversación sobre poder, psicología, responsabilidad y nuevas formas de dirigir desde la congruencia.",
+      "image": "assets/expoLibro.png"
+    }
+  ]
+}

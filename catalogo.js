@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function cargarContenidoCatalogo() {
-    fetch(`content/content.json?ts=${Date.now()}`, { cache: 'no-store' })
+    fetch(`content/catalog.json?ts=${Date.now()}`, { cache: 'no-store' })
         .then(response => response.json())
         .then(data => {
             document.querySelectorAll('[data-content-field]').forEach(element => {

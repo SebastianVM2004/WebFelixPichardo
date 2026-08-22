@@ -1,0 +1,65 @@
+{
+  "catalogTitle": "Catálogo de Servicios",
+  "catalogSearchPlaceholder": "Buscar servicios...",
+  "cartHeading": "Carrito de Compras",
+  "checkoutButton": "Proceder al Pago",
+  "clearCartButton": "Limpiar Carrito",
+  "products": [
+    {
+      "name": "Consultoría Estratégica",
+      "description": "Análisis profundo de tu negocio y estrategia personalizada.",
+      "price": 1500,
+      "category": "consultoría",
+      "emoji": "📊"
+    },
+    {
+      "name": "Desarrollo Web",
+      "description": "Sitios web modernos y responsivos para tu empresa.",
+      "price": 2500,
+      "category": "desarrollo",
+      "emoji": "🌐"
+    },
+    {
+      "name": "Diseño Gráfico",
+      "description": "Identidad visual profesional y atractiva.",
+      "price": 800,
+      "category": "diseño",
+      "emoji": "🎨"
+    },
+    {
+      "name": "Capacitación Digital",
+      "description": "Programas de formación en tecnología y liderazgo.",
+      "price": 600,
+      "category": "capacitación",
+      "emoji": "📚"
+    },
+    {
+      "name": "Aplicaciones Móvil",
+      "description": "Apps iOS y Android personalizadas.",
+      "price": 3500,
+      "category": "desarrollo",
+      "emoji": "📱"
+    },
+    {
+      "name": "Marketing Digital",
+      "description": "Estrategias de marketing y posicionamiento online.",
+      "price": 1200,
+      "category": "consultoría",
+      "emoji": "📢"
+    },
+    {
+      "name": "UX/UI Design",
+      "description": "Diseño de experiencia de usuario excepcional.",
+      "price": 2000,
+      "category": "diseño",
+      "emoji": "✨"
+    },
+    {
+      "name": "Gestión de Proyectos",
+      "description": "Capacitación en metodologías ágiles y gestión.",
+      "price": 950,
+      "category": "capacitación",
+      "emoji": "🎯"
+    }
+  ]
+}

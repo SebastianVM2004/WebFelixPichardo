@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  fetch(`content/content.json?ts=${Date.now()}`, { cache: 'no-store' })
+  fetch(`content/conferences.json?ts=${Date.now()}`, { cache: 'no-store' })
     .then(response => response.json())
     .then(data => {
       renderPageFields(data);

@@ -89,10 +89,10 @@
     }
   ],
   "articles": [
-    { "image": "assets/consultoria-habilidades.svg", "imageAlt": "Desarrollo de habilidades", "category": "Formación", "title": "Desarrollo de habilidades", "description": "Programas de capacitación y evaluación para potenciar talento interno." },
-    { "image": "assets/consultoria-proyectos.svg", "imageAlt": "Gestión y Desarrollo de Proyectos", "category": "Proyectos", "title": "Gestión y Desarrollo de Proyectos", "description": "Diseño, planificación y ejecución de iniciativas con enfoque en innovación." },
-    { "image": "assets/consultoria-kpis.svg", "imageAlt": "Análisis y de Desarrollo de KPI's", "category": "KPI's", "title": "Análisis y de Desarrollo de KPI's", "description": "Medición y mejoras en indicadores clave para tomar decisiones informadas." },
-    { "image": "assets/consultoria-liderazgo.svg", "imageAlt": "Gestión de Personal - Liderazgo", "category": "Liderazgo", "title": "Gestión de Personal - Liderazgo", "description": "Coaching y desarrollo de líderes para mejorar la gestión de equipos." }
+    { "image": "assets/consultoria-habilidades.svg", "imageAlt": "Desarrollo de habilidades", "category": "Formación", "slug": "desarrollo-de-habilidades", "title": "Desarrollo de habilidades", "description": "Programas de capacitación y evaluación para potenciar talento interno.", "body": "## Desarrollo de habilidades\n\nProgramas de capacitación y evaluación para potenciar talento interno." },
+    { "image": "assets/consultoria-proyectos.svg", "imageAlt": "Gestión y Desarrollo de Proyectos", "category": "Proyectos", "slug": "gestion-y-desarrollo-de-proyectos", "title": "Gestión y Desarrollo de Proyectos", "description": "Diseño, planificación y ejecución de iniciativas con enfoque en innovación.", "body": "## Gestión y Desarrollo de Proyectos\n\nDiseño, planificación y ejecución de iniciativas con enfoque en innovación." },
+    { "image": "assets/consultoria-kpis.svg", "imageAlt": "Análisis y de Desarrollo de KPI's", "category": "KPI's", "slug": "analisis-y-desarrollo-de-kpis", "title": "Análisis y de Desarrollo de KPI's", "description": "Medición y mejoras en indicadores clave para tomar decisiones informadas.", "body": "## Análisis y de Desarrollo de KPI's\n\nMedición y mejoras en indicadores clave para tomar decisiones informadas." },
+    { "image": "assets/consultoria-liderazgo.svg", "imageAlt": "Gestión de Personal - Liderazgo", "category": "Liderazgo", "slug": "gestion-de-personal-liderazgo", "title": "Gestión de Personal - Liderazgo", "description": "Coaching y desarrollo de líderes para mejorar la gestión de equipos.", "body": "## Gestión de Personal - Liderazgo\n\nCoaching y desarrollo de líderes para mejorar la gestión de equipos." }
   ],
   "products": [
     { "name": "Consultoría Estratégica", "description": "Análisis profundo de tu negocio y estrategia personalizada.", "price": 1500, "category": "consultoría", "emoji": "📊" },

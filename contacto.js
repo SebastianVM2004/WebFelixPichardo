@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function cargarContenidoContacto() {
-    fetch(`content/content.json?ts=${Date.now()}`, { cache: 'no-store' })
+    fetch(`content/contact.json?ts=${Date.now()}`, { cache: 'no-store' })
         .then(response => response.json())
         .then(data => {
             const contactInfo = data.contactInfo || {};
