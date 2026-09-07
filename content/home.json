@@ -19,10 +19,10 @@
   "otherArticle2Description": "Diseño, planificación y ejecución de iniciativas con enfoque en innovación.",
   "authorDescription": "Autor de \"Liderazgo utópico\". Conferencista y consultor en liderazgo humano y consciente.",
   "otherArticle1Description": "Programas de capacitación y evaluación para potenciar talento interno.",
-  "siteTitle": "CHUPAME LASKEVIN BOLAS ",
+  "siteTitle": "prueba 2",
   "bookDescription": "Conoce un liderazgo más humano, ético y realista en cada página.",
   "podcastTitle": "De Todo un Poco — Indicadores Claves de Desempeño (KPI)",
-  "textoentrada": "**a informacion**\n\n**d﻿adasdadadadasdada**",
+  "textoentrada": "**w﻿tf funciona o nel 2**",
   "otherArticlesHeading": "Más artículos",
   "featuredArticleDate": "10 julio 2026",
   "authorName": "Félix Pichardo Meuly",
@@ -36,7 +36,8 @@
       "imageAlt": "Presentación de libro Liderazgo Utópico",
       "title": "Presentacion de libro Liderazgo Utópico",
       "description": "Una conversación sobre poder, psicología, responsabilidad y nuevas formas de dirigir desde la congruencia.",
-      "date": "Sábado 25 de julio 2026 · 12:00 hrs"
+      "date": "Sábado 25 de julio 2026 · 12:00 hrs",
+      "url": "https://www.youtube.com/watch?v=-5bj6AUe3nI"
     },
     {
       "image": "assets/Habilidadesdelentrevistador.png",
@@ -53,11 +54,17 @@
       "date": ""
     },
     {
-      "image": "assets/GestionServicios.png",
+      "image": "/static/images/chatgpt-image-5-jun-2026-01_59_56-p.m..png",
       "imageAlt": "Gestión de servicios",
       "title": "Gestion de Servicios",
       "description": "Consultoría en Gestión de M.I.D. FELIX PICHARDO MEULY Servicio de Consultoría en Gestión de M.I.D. por el Maestro en Innovación para el Desarrollo Empresarial e Ingeniero ambas por parte del TEC y Psicólogo de la UNAM Félix Pichardo Meuly",
       "date": ""
+    },
+    {
+      "imageAlt": "prueba de tarjeta",
+      "title": "sebas",
+      "description": "hola este es un texto random para pruebas",
+      "image": "/static/images/chatgpt-image-5-jun-2026-01_59_56-p.m..png"
     }
   ],
   "featuredArticleSummary": "Resumen: Análisis situacional que identifica falta de liderazgo local en el área de servicios, impactando a clientes internos (ingeniería, aplicacionistas, ventas, finanzas) y clientes externos (clientes finales y socios). Se reportan KPIs fuera de rango: tiempo de respuesta, cumplimiento de mantenimiento preventivo, tiempo entre fallas y NPS."
