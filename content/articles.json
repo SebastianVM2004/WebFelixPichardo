@@ -1,15 +1,17 @@
 {
-  "articlesHeading": "Todos los artículos disponibles",
+  "articlesHeading": "Todos los artículos disponibles 1",
   "articlesDescription": "Artículos sobre liderazgo, innovación y desarrollo profesional.",
   "articles": [
     {
-      "image": "assets/consultoria-habilidades.svg",
+      "footerImage": "/static/images/lolchicas.png",
+      "body": "## Desarrollo de habilidades\n\nA﻿ ver estamos probando texto para la informacion del documento, esta informacion es meramente informativa y no busca remplazar nada mas.",
+      "secondaryImage": "/static/images/chatgpt-image-5-jun-2026-01_59_56-p.m..png",
+      "slug": "desarrolo-de-habilidades",
       "imageAlt": "Desarrollo de habilidades",
-      "category": "Formación",
-      "slug": "desarrollo-de-habilidades",
       "title": "Desarrollo de habilidades",
-      "description": "Programas de capacitación y evaluación para potenciar talento interno.",
-      "body": "## Desarrollo de habilidades\n\nProgramas de capacitación y evaluación para potenciar talento interno."
+      "image": "/static/images/lolchicas.png",
+      "description": "Programas de capacitación y evaluación para potenciar talento interno.\nProgramas de capacitación y evaluación para potenciar talento interno.\nProgramas de capacitación y evaluación para potenciar talento interno.\nProgramas de capacitación y evaluación para potenciar talento interno.\nProgramas de capacitación y evaluación para potenciar talento interno.\nProgramas de capacitación y evaluación para potenciar talento interno.Programas de capacitación y evaluación para potenciar talento interno.\n",
+      "category": "Formación"
     },
     {
       "image": "assets/consultoria-proyectos.svg",
