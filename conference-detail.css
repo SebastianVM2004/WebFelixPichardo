@@ -1,0 +1,161 @@
+.conference-page {
+  background: #101c2b;
+  animation: none;
+}
+
+.conference-page main {
+  max-width: 1080px;
+  margin-bottom: 64px;
+}
+
+.conference-back {
+  display: inline-block;
+  margin: 28px 0 18px;
+  color: #ffe08a;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.conference-back:hover,
+.conference-back:focus-visible {
+  color: #fdb913;
+}
+
+.conference-detail {
+  overflow: hidden;
+  border: 1px solid rgba(253, 185, 19, 0.3);
+  background: #0d1b2a;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+}
+
+.conference-poster {
+  position: relative;
+  min-height: min(760px, 78vh);
+  display: flex;
+  align-items: flex-end;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.conference-poster::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(7, 16, 30, 0.94) 0%, rgba(7, 16, 30, 0.63) 45%, rgba(7, 16, 30, 0.1) 100%);
+  content: '';
+}
+
+.conference-poster-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.conference-poster-overlay {
+  max-width: 670px;
+  padding: clamp(32px, 7vw, 84px);
+  color: #fff;
+}
+
+.conference-poster-label {
+  margin: 0 0 18px;
+  color: #fdb913;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.conference-poster h1 {
+  margin: 0 0 24px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.conference-poster-date {
+  display: inline-block;
+  margin: 0 0 22px;
+  padding: 10px 16px;
+  background: #fdb913;
+  color: #0d1b2a;
+  font-size: clamp(1rem, 2.2vw, 1.6rem);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.conference-poster-description {
+  max-width: 590px;
+  margin: 0 0 30px;
+  font-size: clamp(1rem, 1.7vw, 1.3rem);
+  line-height: 1.55;
+}
+
+.conference-poster-callout {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 2px solid #fff;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.conference-detail-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 24px clamp(24px, 6vw, 72px);
+  background: #fdb913;
+  color: #0d1b2a;
+}
+
+.conference-detail-info div {
+  display: grid;
+  gap: 5px;
+}
+
+.conference-detail-info span {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.conference-detail-info strong {
+  font-size: 1.1rem;
+}
+
+.conference-loading,
+.conference-error {
+  padding: 40px;
+  color: #fff;
+}
+
+@media (max-width: 650px) {
+  .conference-poster {
+    min-height: 680px;
+  }
+
+  .conference-poster::after {
+    background: linear-gradient(0deg, rgba(7, 16, 30, 0.95) 0%, rgba(7, 16, 30, 0.42) 75%, rgba(7, 16, 30, 0.12) 100%);
+  }
+
+  .conference-poster-overlay {
+    padding: 28px 24px;
+  }
+
+  .conference-poster h1 {
+    font-size: clamp(3.2rem, 15vw, 5rem);
+  }
+
+  .conference-detail-info {
+    grid-template-columns: 1fr;
+  }
+}

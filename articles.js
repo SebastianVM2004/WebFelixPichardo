@@ -1,8 +1,24 @@
 const articleCount = document.querySelector('[data-article-count]');
+const fallbackArticleListImages = [
+  'assets/junta.png',
+  'assets/Consultorias.png',
+  'assets/GestionServicios.png',
+  'assets/Habilidadesdelentrevistador.png',
+  'assets/Plan 30-60-90.png'
+];
 
 function getPublishedImagePath(path) {
   const imagePath = String(path || '').trim();
   return imagePath.startsWith('/images/') ? `/static/images/${imagePath.slice(8)}` : imagePath;
+}
+
+function createArticleSlug(title) {
+  return String(title || 'articulo')
+    .toLocaleLowerCase('es')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
 }
 
 function renderArticles(articles) {
@@ -13,35 +29,26 @@ function renderArticles(articles) {
   articles.forEach(article => {
     const card = document.createElement('article');
     card.className = 'article-card';
-    card.tabIndex = 0;
-    card.dataset.articleSlug = article.slug || article.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const slug = article.slug || createArticleSlug(article.title);
     card.innerHTML = `<div class="article-thumb"></div><div class="article-info"><span class="article-category"></span><h3></h3><p></p></div><div class="article-action">›</div>`;
     const image = document.createElement('img');
-    image.src = getPublishedImagePath(article.image);
+    image.src = getPublishedImagePath(article.image) || fallbackArticleListImages[Math.floor(Math.random() * fallbackArticleListImages.length)];
     image.alt = article.imageAlt || article.title || 'Artículo';
     card.querySelector('.article-thumb').appendChild(image);
     card.querySelector('.article-category').textContent = article.category || '';
     card.querySelector('h3').textContent = article.title || '';
     card.querySelector('p').textContent = article.description || '';
-    list.appendChild(card);
+
+    const articleLink = document.createElement('a');
+    articleLink.className = 'article-card-link';
+    articleLink.href = `article.html?slug=${encodeURIComponent(slug)}`;
+    articleLink.setAttribute('aria-label', `Leer artículo: ${article.title || 'sin título'}`);
+    articleLink.appendChild(card);
+    list.appendChild(articleLink);
   });
 
   const articleCards = list.querySelectorAll('.article-card');
   if (articleCount) articleCount.textContent = `${articleCards.length} artículos disponibles`;
-  articleCards.forEach(card => {
-    const openArticle = () => {
-      articleCards.forEach(item => item.classList.remove('active'));
-      card.classList.add('active');
-      window.location.href = `article.html?slug=${encodeURIComponent(card.dataset.articleSlug)}`;
-    };
-    card.addEventListener('click', openArticle);
-    card.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        openArticle();
-      }
-    });
-  });
 }
 
 function renderPageFields(data) {

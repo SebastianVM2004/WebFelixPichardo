@@ -277,12 +277,31 @@ function actualizarCarrito() {
         itemDiv.innerHTML = `
             <div class="cart-item-name">${item.nombre} x${item.cantidad}</div>
             <div class="cart-item-price">$${(item.precio * item.cantidad).toFixed(2)}</div>
-            <button class="btn-remove" onclick="eliminarDelCarrito(${item.id})">Eliminar</button>
+            <div class="cart-item-actions">
+                <button class="quantity-btn" type="button" aria-label="Disminuir cantidad" onclick="disminuirCantidad(${item.id})">−</button>
+                <span class="cart-item-quantity">${item.cantidad}</span>
+                <button class="quantity-btn" type="button" aria-label="Aumentar cantidad" onclick="agregarAlCarrito(${item.id})">+</button>
+                <button class="btn-remove" type="button" onclick="eliminarDelCarrito(${item.id})">Quitar</button>
+            </div>
         `;
         cartItems.appendChild(itemDiv);
     });
 
     actualizarResumenCarrito();
+}
+
+function disminuirCantidad(productoId) {
+    const itemCarrito = carrito.find(item => item.id === productoId);
+    if (!itemCarrito) return;
+
+    if (itemCarrito.cantidad > 1) {
+        itemCarrito.cantidad--;
+    } else {
+        eliminarDelCarrito(productoId);
+        return;
+    }
+
+    actualizarCarrito();
 }
 
 function actualizarResumenCarrito() {

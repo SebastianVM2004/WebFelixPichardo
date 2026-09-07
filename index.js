@@ -24,7 +24,7 @@ let isTransitioning = false;
 function setupServiceCarousel() {
     if (!servicesCarousel || !carouselWrapper) return;
 
-    const originalSlides = Array.from(servicesCarousel.querySelectorAll(".service-card"));
+    const originalSlides = Array.from(servicesCarousel.children);
     if (originalSlides.length === 0) return;
 
     slideCount = originalSlides.length;
@@ -159,8 +159,38 @@ function renderServices(services) {
             date.textContent = service.date;
             card.appendChild(date);
         }
-        servicesCarousel.appendChild(card);
+
+        const eventUrl = getSafeServiceUrl(service.url);
+        if (eventUrl) {
+            const link = document.createElement('a');
+            link.className = 'service-card-link';
+            link.href = eventUrl;
+            link.setAttribute('aria-label', `Ver información: ${service.title || 'evento'}`);
+
+            if (/^https?:\/\//i.test(eventUrl)) {
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+            }
+
+            link.appendChild(card);
+            servicesCarousel.appendChild(link);
+        } else {
+            servicesCarousel.appendChild(card);
+        }
     });
+}
+
+function getSafeServiceUrl(value) {
+    const rawUrl = String(value || '').trim();
+    if (!rawUrl) return '';
+
+    try {
+        const parsedUrl = new URL(rawUrl, window.location.href);
+        if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') return '';
+        return parsedUrl.href;
+    } catch {
+        return '';
+    }
 }
 
 function getPublishedImagePath(path) {

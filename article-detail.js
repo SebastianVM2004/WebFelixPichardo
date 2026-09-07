@@ -28,57 +28,119 @@ function getPublishedImagePath(path) {
   return imagePath.startsWith('/images/') ? `/static/images/${imagePath.slice(8)}` : imagePath;
 }
 
+const fallbackArticleImages = [
+  'assets/junta.png',
+  'assets/Consultorias.png',
+  'assets/GestionServicios.png',
+  'assets/Habilidadesdelentrevistador.png',
+  'assets/Plan 30-60-90.png',
+  'assets/expoLibro.png'
+];
+
+function getArticleImages(article) {
+  const usedImages = [];
+  const chooseImage = configuredImage => {
+    const image = getPublishedImagePath(configuredImage);
+    if (image && !usedImages.includes(image)) {
+      usedImages.push(image);
+      return image;
+    }
+
+    const availableImages = fallbackArticleImages.filter(item => !usedImages.includes(item));
+    const randomImage = availableImages[Math.floor(Math.random() * availableImages.length)] || fallbackArticleImages[0];
+    usedImages.push(randomImage);
+    return randomImage;
+  };
+
+  return {
+    hero: chooseImage(article.image),
+    secondary: chooseImage(article.secondaryImage),
+    footer: chooseImage(article.footerImage)
+  };
+}
+
+function createArticleFigure(imagePath, altText, caption, className) {
+  const figure = document.createElement('figure');
+  figure.className = `article-detail-figure ${className}`;
+
+  const image = document.createElement('img');
+  image.className = 'article-detail-image';
+  image.src = imagePath;
+  image.alt = altText;
+  figure.appendChild(image);
+
+  if (caption) {
+    const figcaption = document.createElement('figcaption');
+    figcaption.className = 'article-detail-caption';
+    figcaption.textContent = caption;
+    figure.appendChild(figcaption);
+  }
+
+  return figure;
+}
+
 function renderArticle(article) {
   articleDetail.innerHTML = '';
+  const images = getArticleImages(article);
 
-  const category = document.createElement('div');
-  category.className = 'article-detail-category';
-  category.textContent = article.category || 'Artículo';
-  articleDetail.appendChild(category);
+  const topLine = document.createElement('div');
+  topLine.className = 'article-detail-topline';
+  topLine.innerHTML = `<span>${escapeHtml(article.category || 'Artículo')}</span><span>${escapeHtml(article.date || article.publishedAt || '')}</span>`;
+  articleDetail.appendChild(topLine);
+
+  const hero = document.createElement('div');
+  hero.className = 'article-detail-hero';
+
+  const heading = document.createElement('div');
+  heading.className = 'article-detail-heading';
 
   const title = document.createElement('h1');
   title.textContent = article.title || 'Artículo sin título';
-  articleDetail.appendChild(title);
+  heading.appendChild(title);
 
   const intro = document.createElement('p');
   intro.className = 'article-detail-dek';
   intro.textContent = article.description || article.summary || '';
-  articleDetail.appendChild(intro);
+  heading.appendChild(intro);
 
   const meta = document.createElement('div');
   meta.className = 'article-detail-meta';
   const author = article.author || 'Félix Pichardo Meuly';
-  const date = article.date || article.publishedAt || '';
   meta.innerHTML = [
-    date ? `<span>${escapeHtml(date)}</span>` : '',
     author ? `<span>Por ${escapeHtml(author)}</span>` : ''
   ].filter(Boolean).join(' · ');
-  articleDetail.appendChild(meta);
+  heading.appendChild(meta);
+  hero.appendChild(heading);
 
-  if (article.image) {
-    const figure = document.createElement('figure');
-    figure.className = 'article-detail-figure';
+  hero.appendChild(createArticleFigure(
+    images.hero,
+    article.imageAlt || article.title || 'Artículo',
+    article.imageCaption || article.imageAlt || '',
+    'article-detail-hero-figure'
+  ));
+  articleDetail.appendChild(hero);
 
-    const image = document.createElement('img');
-    image.className = 'article-detail-image';
-    image.src = getPublishedImagePath(article.image);
-    image.alt = article.imageAlt || article.title || 'Artículo';
-    figure.appendChild(image);
-
-    if (article.imageCaption || article.imageAlt) {
-      const figcaption = document.createElement('figcaption');
-      figcaption.className = 'article-detail-caption';
-      figcaption.textContent = article.imageCaption || article.imageAlt || '';
-      figure.appendChild(figcaption);
-    }
-
-    articleDetail.appendChild(figure);
-  }
+  const editorialGrid = document.createElement('div');
+  editorialGrid.className = 'article-detail-editorial-grid';
+  editorialGrid.appendChild(createArticleFigure(
+    images.secondary,
+    article.secondaryImageAlt || article.title || 'Imagen del artículo',
+    article.secondaryImageCaption || '',
+    'article-detail-secondary-figure'
+  ));
 
   const content = document.createElement('div');
   content.className = 'article-detail-content';
   content.innerHTML = renderMarkdown(article.body || article.description || 'Este artículo todavía no tiene contenido.');
-  articleDetail.appendChild(content);
+  editorialGrid.appendChild(content);
+  articleDetail.appendChild(editorialGrid);
+
+  articleDetail.appendChild(createArticleFigure(
+    images.footer,
+    article.footerImageAlt || article.title || 'Imagen del artículo',
+    article.footerImageCaption || '',
+    'article-detail-footer-figure'
+  ));
   document.title = `${article.title || 'Artículo'} - Books Felix`;
 }
 

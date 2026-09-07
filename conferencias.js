@@ -18,10 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
     conferences.forEach(conference => {
       const card = document.createElement('article');
       card.className = 'conference-card';
+      const slug = conference.slug || createSlug(conference.title);
+      const cardLink = document.createElement('a');
+      cardLink.className = 'conference-card-link';
+      cardLink.href = `conference.html?slug=${encodeURIComponent(slug)}`;
+      cardLink.setAttribute('aria-label', `Ver conferencia: ${conference.title || 'sin título'}`);
+
       if (conference.image) {
         const image = document.createElement('img');
         image.src = conference.image;
-        image.alt = conference.title || 'Conferencia';
+        image.alt = conference.imageAlt || conference.title || 'Conferencia';
         image.className = 'conf-image';
         card.appendChild(image);
       }
@@ -44,8 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const description = document.createElement('p');
       description.textContent = conference.description || '';
       card.appendChild(description);
-      listEl.appendChild(card);
+      cardLink.appendChild(card);
+      listEl.appendChild(cardLink);
     });
+  }
+
+  function createSlug(title) {
+    return String(title || 'conferencia')
+      .toLocaleLowerCase('es')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
   }
 
   fetch(`content/conferences.json?ts=${Date.now()}`, { cache: 'no-store' })
