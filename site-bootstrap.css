@@ -1,0 +1,117 @@
+:root {
+  --site-ink: #102a43;
+  --site-navy: #0d1b2a;
+  --site-teal: #1a3a4a;
+  --site-gold: #fdb913;
+  --site-gold-soft: #ffe08a;
+}
+
+header {
+  position: relative;
+  z-index: 10;
+}
+
+header h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.04em;
+}
+
+.site-navbar {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0.25rem 1rem 0;
+}
+
+.site-navbar .navbar-toggler {
+  margin: 0.25rem auto 0.75rem;
+  border-color: rgba(253, 185, 19, 0.55);
+}
+
+.site-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(253, 185, 19, 0.25);
+}
+
+.site-navbar .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+.site-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid transparent;
+  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link:focus,
+.site-navbar .nav-link.active {
+  color: var(--site-gold-soft);
+  border-bottom-color: var(--site-gold);
+  transform: translateY(-1px);
+}
+
+.chatbot-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+}
+
+.chatbot-social-links a {
+  display: inline-flex;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.chatbot-social-links a:hover,
+.chatbot-social-links a:focus {
+  color: var(--site-gold);
+  background: rgba(253, 185, 19, 0.12);
+}
+
+@media (max-width: 900px) {
+  .top-row .welcome {
+    order: 1 !important;
+  }
+
+  .top-row .author {
+    order: 2 !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .site-navbar {
+    padding: 0 1rem 0.5rem;
+  }
+
+  .site-navbar .navbar-collapse {
+    padding: 0.5rem 0 0.75rem;
+  }
+
+  .site-navbar .nav-link {
+    text-align: center;
+    border-bottom: 0;
+    border-left: 2px solid transparent;
+  }
+
+  .site-navbar .nav-link:hover,
+  .site-navbar .nav-link:focus,
+  .site-navbar .nav-link.active {
+    border-left-color: var(--site-gold);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

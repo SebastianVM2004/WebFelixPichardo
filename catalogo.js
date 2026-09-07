@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
     configurarBuscador();
     configurarFiltros();
     configurarCarrito();
-    configurarChatbot();
 });
 
 function cargarContenidoCatalogo() {
@@ -105,7 +104,6 @@ function cargarContenidoCatalogo() {
         })
         .catch(error => console.warn('No se pudieron cargar los productos:', error));
 }
-
 function actualizarCategorias() {
     const categoryFilter = document.getElementById('categoryFilter');
     if (!categoryFilter) return;
@@ -325,82 +323,3 @@ function mostrarNotificacion(mensaje) {
     }, 3000);
 }
 
-// CHATBOT FLOTANTE
-function configurarChatbot() {
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-    const chatbotWindow = document.getElementById('chatbot-window');
-    const closeBtn = document.getElementById('close-chatbot');
-    const sendBtn = document.getElementById('send-btn');
-    const userInput = document.getElementById('user-input');
-    const chatMessages = document.getElementById('chat-messages');
-
-    const respuestasBot = {
-        'precio': 'Nuestros precios varían según el servicio. El más económico es de $600 y el más premium de $3500.',
-        'servicios': 'Ofrecemos: Consultoría, Desarrollo Web, Diseño Gráfico, Aplicaciones Móvil, Marketing Digital y más.',
-        'carrito': 'Puedes agregar productos al carrito haciendo clic en "Agregar al Carrito" en cada producto.',
-        'pago': 'Aceptamos todos los métodos de pago. El pago se procesa de forma segura.',
-        'envío': 'Los servicios digitales se entregan en línea. Consulta con nosotros para detalles específicos.',
-        'duda': 'Estamos aquí para ayudarte. ¿Qué necesitas saber?',
-        'hola': 'Hola! Bienvenido a nuestro catálogo. ¿En qué puedo ayudarte?',
-        'default': 'Puedo ayudarte con: precios, servicios, carrito, pago, envío. ¿Qué deseas saber?'
-    };
-
-    chatbotToggle.addEventListener('click', function(event) {
-        event.preventDefault();
-        const chatDiv = document.getElementById('chat-messages');
-        const defaultMsg = '¡Hola! Soy tu asistente virtual. Pregúntame sobre horario, precio o envío.';
-        if (chatbotWindow.classList.contains('hidden')) {
-            if (chatDiv) chatDiv.innerHTML = `<div class="message bot-message"><strong>Bot:</strong> ${defaultMsg}</div>`;
-            chatbotWindow.classList.remove('hidden');
-            chatbotWindow.classList.add('visible');
-        } else {
-            chatbotWindow.classList.add('hidden');
-            chatbotWindow.classList.remove('visible');
-        }
-    });
-
-    closeBtn.addEventListener('click', function() {
-        chatbotWindow.classList.add('hidden');
-        chatbotWindow.classList.remove('visible');
-    });
-
-    function enviarMensaje() {
-        const texto = userInput.value.trim();
-        if (texto === '') return;
-
-        agregarMensaje(texto, 'user-message');
-        userInput.value = '';
-
-        setTimeout(() => {
-            const respuesta = obtenerRespuesta(texto);
-            agregarMensaje(respuesta, 'bot-message');
-        }, 500);
-    }
-
-    sendBtn.addEventListener('click', enviarMensaje);
-    userInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            enviarMensaje();
-        }
-    });
-
-    function agregarMensaje(texto, clase) {
-        const mensajeDiv = document.createElement('div');
-        mensajeDiv.className = `message ${clase}`;
-        mensajeDiv.textContent = texto;
-        chatMessages.appendChild(mensajeDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    function obtenerRespuesta(entrada) {
-        const entradaLower = entrada.toLowerCase();
-
-        for (const clave in respuestasBot) {
-            if (entradaLower.includes(clave)) {
-                return respuestasBot[clave];
-            }
-        }
-
-        return respuestasBot['default'];
-    }
-}

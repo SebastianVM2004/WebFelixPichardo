@@ -1127,12 +1127,11 @@ main {
   }
 
   .container.welcome {
-    order: 2;
+    order: 1;
   }
 
-  .container.image {
-    order: 1;
-    width: 100%;
+  .container.author {
+    order: 2;
   }
 
   .container {
