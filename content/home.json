@@ -53,11 +53,17 @@
       "date": ""
     },
     {
-      "image": "assets/GestionServicios.png",
+      "image": "/static/images/chatgpt-image-5-jun-2026-01_59_56-p.m..png",
       "imageAlt": "Gestión de servicios",
       "title": "Gestion de Servicios",
       "description": "Consultoría en Gestión de M.I.D. FELIX PICHARDO MEULY Servicio de Consultoría en Gestión de M.I.D. por el Maestro en Innovación para el Desarrollo Empresarial e Ingeniero ambas por parte del TEC y Psicólogo de la UNAM Félix Pichardo Meuly",
       "date": ""
+    },
+    {
+      "imageAlt": "prueba de tarjeta",
+      "title": "sebas",
+      "description": "hola este es un texto random para pruebas",
+      "image": "/static/images/chatgpt-image-5-jun-2026-01_59_56-p.m..png"
     }
   ],
   "featuredArticleSummary": "Resumen: Análisis situacional que identifica falta de liderazgo local en el área de servicios, impactando a clientes internos (ingeniería, aplicacionistas, ventas, finanzas) y clientes externos (clientes finales y socios). Se reportan KPIs fuera de rango: tiempo de respuesta, cumplimiento de mantenimiento preventivo, tiempo entre fallas y NPS."
