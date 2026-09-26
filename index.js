@@ -204,6 +204,45 @@ function getPublishedImagePath(path) {
     return imagePath;
 }
 
+function renderLatestArticles(articles) {
+    const section = document.getElementById('other-articles-container');
+    const list = document.getElementById('latest-articles-list');
+    if (!section || !list) return;
+
+    const latestArticles = Array.isArray(articles) ? articles.slice(-4) : [];
+    list.innerHTML = '';
+    section.hidden = latestArticles.length === 0;
+
+    latestArticles.forEach(article => {
+        const slug = article.slug;
+        if (!slug) return;
+
+        const card = document.createElement('article');
+        card.className = 'article-card';
+        card.innerHTML = '<div class="article-thumb"></div><div class="article-info"><span class="article-category"></span><h3></h3><p></p></div><div class="article-action">›</div>';
+
+        const image = document.createElement('img');
+        image.src = getPublishedImagePath(article.image || '');
+        image.alt = article.imageAlt || article.title || 'Artículo';
+        card.querySelector('.article-thumb').appendChild(image);
+        card.querySelector('.article-category').textContent = article.category || '';
+        card.querySelector('h3').textContent = article.title || '';
+        card.querySelector('p').textContent = article.description || '';
+
+        const link = document.createElement('a');
+        link.className = 'article-card-link';
+        link.href = `article.html?slug=${encodeURIComponent(slug)}`;
+        link.setAttribute('aria-label', `Leer artículo: ${article.title || 'sin título'}`);
+        link.appendChild(card);
+        list.appendChild(link);
+    });
+}
+
+fetch(`content/articles.json?ts=${Date.now()}`, { cache: 'no-store' })
+    .then(response => response.ok ? response.json() : Promise.reject(new Error('No se pudieron cargar los artículos')))
+    .then(data => renderLatestArticles(data.articles))
+    .catch(error => console.warn('No se pudieron cargar los artículos destacados:', error));
+
 function loadContent() {
     fetch(`content/home.json?ts=${Date.now()}`, { cache: 'no-store' })
         .then(resp => resp.ok ? resp.json() : Promise.reject('No content'))
