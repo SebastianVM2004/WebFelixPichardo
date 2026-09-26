@@ -14,15 +14,6 @@
       "category": "Formación"
     },
     {
-      "image": "assets/consultoria-proyectos.svg",
-      "imageAlt": "Gestión y Desarrollo de Proyectos",
-      "category": "Proyectos",
-      "slug": "gestion-y-desarrollo-de-proyectos",
-      "title": "Gestión y Desarrollo de Proyectos",
-      "description": "Diseño, planificación y ejecución de iniciativas con enfoque en innovación.",
-      "body": "## Gestión y Desarrollo de Proyectos\n\nDiseño, planificación y ejecución de iniciativas con enfoque en innovación."
-    },
-    {
       "image": "assets/consultoria-kpis.svg",
       "imageAlt": "Análisis y de Desarrollo de KPI's",
       "category": "KPI's",
